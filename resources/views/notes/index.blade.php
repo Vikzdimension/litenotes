@@ -7,20 +7,21 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            @foreach ($notes as $note)
+            @forelse ($notes as $note)
                 <div class="my6 p-6 bg-white border-b border-grey-200 shadow-sm sm:rounded-lg">
                     <h1 class="font-bold text-2xl">
                         {{ $note->title }}
                     </h1>
                     <p class="mt-2">
-                        {{  $note->text }}
+                        {{  Str::limit($note->text, 200) }}
                     </p>
                     <span class="block mt-4 text-sm opacity-70">{{ $note->updated_at->diffForHumans() }}</span>
                 </div>
-            {{-- @empty
+            @empty
             <p>You have no notes yet. </p>
-            @endempty --}}
             @endforelse
+
+            {{ $notes->links() }}
         </div>
     </div>
 </x-app-layout>
