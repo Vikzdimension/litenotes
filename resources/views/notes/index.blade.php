@@ -7,6 +7,12 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if (session('success'))
+            <div class="mb-4 px-4 py-2 bg-red-100 border border-red-200 text-red-700 rounded-md">
+                {{ session('success') }}
+            </div>
+            @endsession
+            @endif
             <a href="{{ route('notes.create') }}" class="btn-link btn-lg mb-2">+ New Note</a>
             @forelse ($notes as $note)
                 <div class="my6 p-6 bg-white border-b border-grey-200 shadow-sm sm:rounded-lg">
