@@ -1,72 +1,21 @@
 [build]
-  # Command to build the assets using Vite
-  command = "npm run build"  # This runs the Vite build script
+  # Build command to run Vite (assuming you're using npm or yarn)
+  command = "npm run build"  # Or "yarn build" if you're using yarn
 
-  # The directory to publish, typically the 'public' folder in Laravel
-  publish = "public"  # Make sure this points to your public directory
+  # The directory where Netlify will find the compiled assets
+  publish = "public"  # Make sure this is the location of your built assets (Laravel's 'public' folder)
 
 [context.production.environment]
-  # Laravel Environment Variables (configure according to your production setup)
+  # Laravel environment variables that will be needed during the deployment
   APP_NAME = "Laravel"
   APP_ENV = "production"
-  APP_KEY = "base64:your-app-key-here"  # Set your actual APP_KEY
-  APP_DEBUG = "false"  # Should be false in production
-  APP_URL = "https://your-site-url.netlify.app"  # Your Netlify URL
+  APP_KEY = "base64:your-generated-app-key"  # Set your generated APP_KEY here
+  APP_DEBUG = "false"
+  APP_URL = "https://your-netlify-site-url.netlify.app"
   
-  # Database (You’ll need to use an external DB provider like Heroku, DigitalOcean, etc.)
-  DB_CONNECTION = "mysql"
-  DB_HOST = "your-database-host"  # Set to your external database host
-  DB_PORT = "3306"
-  DB_DATABASE = "your-database-name"
-  DB_USERNAME = "your-database-username"
-  DB_PASSWORD = "your-database-password"
-
-  # Cache & Session Config
-  CACHE_DRIVER = "file"
-  SESSION_DRIVER = "file"
-  SESSION_LIFETIME = "120"
-
-  # Redis Config (if you’re using Redis for caching or queues)
-  REDIS_HOST = "your-redis-host"
-  REDIS_PASSWORD = "your-redis-password"
-  REDIS_PORT = "6379"
-
-  # Mailer Config (use a real mail service or mock server)
-  MAIL_MAILER = "smtp"
-  MAIL_HOST = "smtp.mailtrap.io"
-  MAIL_PORT = "587"
-  MAIL_USERNAME = "your-smtp-username"
-  MAIL_PASSWORD = "your-smtp-password"
-  MAIL_ENCRYPTION = "tls"
-  MAIL_FROM_ADDRESS = "your-email@example.com"
-  MAIL_FROM_NAME = "Laravel"
-
-  # AWS S3 (if using AWS for file storage)
-  AWS_ACCESS_KEY_ID = "your-aws-access-key-id"
-  AWS_SECRET_ACCESS_KEY = "your-aws-secret-access-key"
-  AWS_DEFAULT_REGION = "us-east-1"
-  AWS_BUCKET = "your-bucket-name"
-  AWS_USE_PATH_STYLE_ENDPOINT = "false"
-
-  # Pusher (if using Pusher for real-time notifications)
-  PUSHER_APP_ID = "your-pusher-app-id"
-  PUSHER_APP_KEY = "your-pusher-app-key"
-  PUSHER_APP_SECRET = "your-pusher-app-secret"
-  PUSHER_HOST = "your-pusher-host"
-  PUSHER_PORT = "443"
-  PUSHER_SCHEME = "https"
-  PUSHER_APP_CLUSTER = "mt1"
-
-  # VITE Environment Variables (if using Vite in your Laravel setup)
-  VITE_PUSHER_APP_KEY = "your-pusher-app-key"
-  VITE_PUSHER_HOST = "your-pusher-host"
-  VITE_PUSHER_PORT = "443"
-  VITE_PUSHER_SCHEME = "https"
-  VITE_PUSHER_APP_CLUSTER = "mt1"
-
-# Optional Redirects
-[[redirects]]
-  from = "/api/*"
-  to = "https://your-backend-server.com/api/:splat"
-  status = 200
-  force = true
+  # TailwindCSS, Vite, and Pusher (optional) environment variables
+  VITE_PUSHER_APP_KEY = "your-pusher-app-key"  # Optional, only if using Pusher for real-time features
+  VITE_PUSHER_HOST = "your-pusher-host"        # Optional
+  VITE_PUSHER_PORT = "443"                     # Optional
+  VITE_PUSHER_SCHEME = "https"                 # Optional
+  VITE_PUSHER_APP_CLUSTER = "mt1"              # Optional
