@@ -1,2 +1,2 @@
 # litenotes
- Note Applucation L:earning
+Note Application
