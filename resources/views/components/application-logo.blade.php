@@ -1,5 +1,5 @@
 <div class="flex items-center justify-center">
-    <img src="{{ asset('/logo/s_note.png') }}" alt="Lite Notes" width="50" height="50"
+    <img src="{{ asset('s_note.png') }}" alt="Lite Notes" width="50" height="50"
         class="object-contain hover-rotate360 transition transform duration-300" />
 </div>
 
