@@ -68,6 +68,27 @@
         .shadow-xl:hover {
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+
+        /* Gradient Underline for Hover */
+        .group:hover .group-hover\:opacity-100 {
+            opacity: 1;
+        }
+
+        .group:hover .underline-gradient {
+            opacity: 1;
+        }
+
+        /* Gradient underline for key text */
+        .underline-gradient {
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #4f46e5, #9333ea);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
     </style>
 </head>
 
@@ -103,18 +124,27 @@
         <section class="bg-white dark:bg-gray-800 animate-fadeIn">
             <div class="max-w-7xl mx-auto px-6 py-12 text-center">
                 <h1 class="text-5xl font-bold text-gray-800 dark:text-gray-100 animate-slideInUp">LiteNotes</h1>
-                <p class="mt-4 text-xl text-gray-600 dark:text-gray-300">
-                    A minimal and efficient note-taking app powered by Laravel &amp; Tailwind CSS.
+                <p class="mt-4 text-xl text-gray-600 dark:text-gray-300 animate-slideInUp delay-200 group">
+                    A minimal and efficient note-taking app powered by
+                    <span class="font-semibold text-indigo-600 dark:text-indigo-400">Laravel</span> &amp;
+                    <span class="font-semibold text-indigo-600 dark:text-indigo-400">Tailwind CSS</span>.
+                    <span class="underline-gradient"></span>
+                </p>
+                <p class="mt-2 text-lg text-gray-600 dark:text-gray-300 animate-slideInUp delay-400 group">
+                    Developed by
+                    <strong class="font-bold text-yellow-500">Vivek Lode</strong>, <em
+                        class="italic text-yellow-500">Full Stack Developer</em>
+                    <span class="underline-gradient"></span>
                 </p>
                 <div class="mt-8">
                     @auth
                         <a href="{{ route('notes.index') }}"
-                            class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-500 transition duration-300 transform hover:scale-105">
+                            class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-500 transition duration-300 transform hover:scale-105 animate-bounceIn delay-600">
                             My Notes
                         </a>
                     @else
                         <a href="{{ route('login') }}"
-                            class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-500 transition duration-300 transform hover:scale-105">
+                            class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-500 transition duration-300 transform hover:scale-105 animate-bounceIn delay-600">
                             Log In to Get Started
                         </a>
                     @endauth
@@ -191,7 +221,8 @@
     <footer class="w-full bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-4 animate-fadeIn">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <p class="text-sm text-gray-600 dark:text-gray-300">
-                &copy; {{ date('Y') }} {{ config('app.name', 'LiteNotes') }}. All rights reserved.
+                &copy; {{ date('Y') }} {{ config('app.name', 'LiteNotes') }}. All rights reserved. Developed by
+                <strong>Vivek Lode</strong>, Full Stack Developer.
             </p>
         </div>
     </footer>
