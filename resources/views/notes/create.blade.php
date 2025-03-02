@@ -23,7 +23,7 @@
                         </div>
                     @enderror
 
-                    <x-textarea name="text" :value="old('text')" placeholder="Start Typing Here..."
+                    <x-textarea name="text" :value="old('text') ? old('text') : ''" placeholder="Start Typing Here..."
                         class="w-full h-64 resize-y mb-4 border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring focus:ring-indigo-500 dark:focus:ring-indigo-600 transition duration-150" />
 
                     @error('text')
@@ -55,4 +55,18 @@
     .animate-fadeIn {
         animation: fadeIn 0.5s ease-in-out;
     }
+
+    textarea {
+        padding: 8px;
+        margin: 0;
+        line-height: 1.5;
+    }
 </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const textarea = document.querySelector('textarea[name="text"]');
+        if (textarea) {
+            textarea.value = textarea.value.trim();
+        }
+    });
+</script>
