@@ -6,7 +6,12 @@
     },
     "routes": [
         { "src": "/build/(.*)", "dest": "/public/build/" },
-        { "src": "/(.*)", "dest": "/api/index.php" }
+        { "src": "/(.*)", "dest": "/api/index.php" },
+        { "src": "/(.*)", "dest": "/public/$1" },
+        { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
+        { "src": "/robots.txt", "dest": "/public/robots.txt" },
+        { "src": "/s_note.png", "dest": "/public/s_note.png" },
+        { "src": "/logo/s_note.png", "dest": "/public/logo/s_note.png" }
     ],
     "public": true,
     "buildCommand": "vite build",
