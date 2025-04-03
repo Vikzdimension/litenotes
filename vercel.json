@@ -30,6 +30,6 @@
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
-        "DB_URL": "mysql://root:WjMdqMduCykmZKjtabzcmPAsQHyGbmqu@switchback.proxy.rlwy.net:56197/railway"
+        "DB_URL": "mysql://root:IWURZcyCMYkdGFlisxdpBiRWIuMvGqpk@turntable.proxy.rlwy.net:32648/railway"
     }
 }
